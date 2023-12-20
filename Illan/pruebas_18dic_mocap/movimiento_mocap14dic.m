@@ -108,11 +108,11 @@ longq=length(X);
 %      prog.MoveJ(target);
 %     
 % end
-for i=401:50:longq
+for i=401:400:longq
      targetname = sprintf('Target%i',i);
      target = RDK.AddTarget(targetname, B0, robot);
-     target.setAsCartesianTarget();
-     H_target=transl(X(i),Y(i),Z(i))*rotz(pi)*roty(-pi/2);
+     target.setAsJointTarget();
+     H_target=transl(X(i),Y(i),Z(i))*rotx(pi/2)*rotz(pi/2);
      target.setPose(H_target);
      prog.MoveJ(target);
     
